@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        greetings-in:
+          destination: greetings
+          contentType: application/json
+  application:
+    name: kafka-consumer
+
+server:
+  port: 0
+
+eureka.instance.instance-id: ${spring.application.name}-${random.value}
